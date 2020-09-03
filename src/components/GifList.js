@@ -6,6 +6,7 @@ function GifList(props) {
     return (
         <ul>
             {gifArray}
+            
         </ul>
     )
 }
