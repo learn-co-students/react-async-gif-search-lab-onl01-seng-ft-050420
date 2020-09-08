@@ -31,7 +31,7 @@ class GifListContainer extends Component {
         return (
             <React.Fragment>
                 <GifSearch submitHandler={this.submitHandler} />
-                <GifList gifs={this.state.gifs} />
+                <GifList gifs={this.state.gifs}  />
             </React.Fragment>
         )
     }
