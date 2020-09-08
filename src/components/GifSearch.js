@@ -1,30 +1,26 @@
 import React from 'react'
 
-class GifSearch extends React.Component {
+export default class GifSearch extends React.Component {
+  state = {
+    query: ""
+  }
 
-    state = {
-        searchTerm: ""
-    }
+  changeHandler = (e) => {
+    this.setState({ query: e.target.value })
+  }
 
-    changeHandler = (e) => {
-        this.setState({ searchTerm: e.target.value })
-    }
+  submitHandler = (e) => {
+    e.preventDefault()
+    this.props.submitHandler(this.state.query)
+    this.setState({ query: "" })
+  }
 
-    submitHandler = (e) => {
-        e.preventDefault()
-        this.props.submitHandler(this.state.searchTerm)
-        this.setState({ searchTerm: "" })
-    }
-    render() {
-        return (
-
-            <form onSubmit={this.submitHandler}>
-                <input type="text" placeholder="search" value={this.state.searchTerm} onChange={this.changeHandler} />
-                <input type="submit" value="search" />
-            </form>
-        )
-    }
+  render() {
+    return (
+      <form onSubmit={this.submitHandler}>
+        <input type="text" placeholder="search" value={this.state.query} onChange={this.changeHandler} />
+        <input type="submit" value="search" />
+      </form>
+    )
+  }
 }
-
-
-export default GifSearch
