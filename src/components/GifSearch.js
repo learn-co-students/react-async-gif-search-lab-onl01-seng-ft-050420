@@ -12,7 +12,8 @@ class GifSearch extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        this.props.submitHandler(this.state.searchTerm)
+        this.props.submitHandler(this.state.searchTerm) // from parent
+        //take in search term from state
         this.setState({ searchTerm: "" })
     }
     render() {
